@@ -1,0 +1,25 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+
+  <mat-card class="box">
+
+    <mat-card-header class="logo">
+      <img src="\assets\img\logo-joystick-loja.png" alt="Logomarca Joystick Loja" height="200" width="200">
+    </mat-card-header>
+
+    <form class="form" [formGroup]="loginForm" (ngSubmit)="logIn()">
+      <mat-card-content>
+        <mat-form-field class="example-full-width">
+          <input matInput formControlName="email" #emailInput placeholder="Email" autofocus>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input matInput type="password" formControlName="senha" #senhaInput placeholder="Senha">
+        </mat-form-field>
+      </mat-card-content>
+      <button mat-stroked-button color="accent" class="btn-block" [disabled]="loginForm.invalid">Entrar</button>
+    </form>
+  </mat-card>
+
+</div>
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }">
+</ngx-loading>
