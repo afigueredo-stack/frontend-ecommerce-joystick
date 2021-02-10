@@ -6,7 +6,10 @@ export interface User {
   senha: string
 }
 
-const urlBase = 'http://localhost:8080';
+/* URL Dev */
+//const urlBase = 'http://localhost:8080';
+/* URL Prod */
+const urlBase = 'https://joystickapi.herokuapp.com:8080';
 
 @Injectable({
   providedIn: 'root'
