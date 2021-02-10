@@ -9,7 +9,7 @@ export interface User {
 /* URL Dev */
 //const urlBase = 'http://localhost:8080';
 /* URL Prod */
-const urlBase = 'https://joystickapi.herokuapp.com:8080';
+const urlBase = 'https://joystickapi.herokuapp.com';
 
 @Injectable({
   providedIn: 'root'
