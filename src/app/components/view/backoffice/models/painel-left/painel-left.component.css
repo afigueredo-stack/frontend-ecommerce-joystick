@@ -1,0 +1,59 @@
+/* Responsice Mobile */
+@media only screen and (max-width: 600px) {
+  .text-holder, mat-card-title, mat-card-subtitle {
+    display: none !important; 
+  }
+
+  .logo-card-left {
+    text-align: left !important;
+  }
+
+  mat-card-content {
+    text-align: left !important;
+  }
+
+  mat-card button{
+    padding-left: 10px !important;
+  }
+  
+}
+
+.example-is-mobile .example-sidenav-container {
+  /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
+     `<body>` to be our scrolling element for mobile layouts. */
+  flex: 1 0 auto;
+}
+
+.mat-card:not([class*=mat-elevation-z]) {
+  box-shadow: none;
+}
+
+/* Card Left */
+.card-left mat-card-content {
+  max-width: 250px;
+}
+
+.logo-card-left {  
+  text-align: center;
+}
+
+.logo-card-left img{  
+  width: 70px;
+}
+
+.profile-image {
+  background-image: url("/assets/img/profile/afigueredo.jpg");
+  background-size: cover;
+}
+
+.mat-card-avatar {
+  border-radius: 6px;
+}
+
+mat-card-header mat-card-title {
+  font-size: 14px;
+}
+
+mat-card-header mat-card-subtitle {
+  font-size: 12px;
+}

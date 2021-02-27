@@ -1,0 +1,118 @@
+/* Responsice Mobile */
+@media only screen and (max-width: 600px) {
+  .text-holder, mat-card-title, mat-card-subtitle {
+    display: none !important; 
+  }
+
+  .logo-card-left {
+    text-align: left !important;
+  }
+
+  .sidenav {
+    width: 72px !important;
+    min-width: 72px !important;
+    text-align: left !important;
+  }
+
+  mat-card-content {
+    text-align: left !important;
+  }
+
+  mat-card button{
+    padding-left: 10px !important;
+  }
+  
+}
+
+.example-is-mobile .example-toolbar {
+  position: fixed;
+  /* Make sure the toolbar will stay on top of the content as it scrolls past. */
+  z-index: 2;
+}
+
+mat-sidenav { 
+  top: 0px !important;
+}
+ 
+mat-sidenav-container{
+  margin-top: 0 !important;
+} 
+
+.sidenav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 270px;
+}
+
+.example-is-mobile .example-container {
+  /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
+     `<body>` to be our scrolling element for mobile layouts. */
+  flex: 1 0 auto;
+}
+
+.mat-card:not([class*=mat-elevation-z]) {
+  box-shadow: none;
+}
+
+/* Card Left */
+.card-left mat-card-content {
+  max-width: 270px;
+}
+
+.logo-card-left {  
+  text-align: center;
+}
+
+.logo-card-left img{  
+  width: 70px;
+}
+
+.profile-image {
+  background-image: url("/assets/img/profile/afigueredo.jpg");
+  background-size: cover;
+}
+
+.mat-card-avatar {
+  border-radius: 6px;
+}
+
+mat-card-header mat-card-title {
+  font-size: 14px;
+}
+
+mat-card-header mat-card-subtitle {
+  font-size: 12px;
+}
+
+/* Card Right */
+mat-toolbar {
+  background-color: #fff;
+}
+
+.top-page button{
+  width: auto;
+}
+
+.profile-image-right {
+  background-image: url("/assets/img/profile/afigueredo.jpg");
+  background-size: cover;  
+}
+
+.icons-right .profile-image-right {
+  
+  border-radius: 50%;  
+  background-repeat: no-repeat;
+    display: inline-block;
+    fill: currentColor;
+    height: 24px;
+    width: 24px;
+}
+
+.icons-right .mat-icon{
+  vertical-align: middle !important;
+}
+
+.icons-right button {
+  vertical-align: unset !important;
+}

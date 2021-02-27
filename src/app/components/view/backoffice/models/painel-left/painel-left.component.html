@@ -1,0 +1,82 @@
+<!-- Painel da esquerda Completo -->
+<ng-scrollbar>
+  <mat-card class="card-left">
+    <!-- Logomarca -->
+    <div class="logo-card-left" [ngStyle]="{'text-align': text}">
+      <img mat-card-image src="\assets\img\logo-joystick-loja.png" alt="Logomarca da empresa">
+    </div>
+    <!-- Profile -->
+    <mat-card-header>
+      <div mat-card-avatar class="profile-image"></div>
+      <mat-card-title [ngStyle]="{'display': display, 'margin-bottom': marginBottomTitle}">Axel Figueredo
+      </mat-card-title>
+      <mat-card-subtitle [ngStyle]="{'display': display}">Bem-vindo Admin!
+      </mat-card-subtitle>
+    </mat-card-header>
+    <!-- Painel da esquerda - Acoes -->
+    <mat-card-content [ngStyle]="{'text-align': text}">
+      <button mat-menu-item [ngStyle]="{'padding-left': paddingButton}">
+        <mat-icon aria-hidden="false" aria-label="home icon">home</mat-icon>
+        <span class="text-holder" [ngStyle]="{'display': display}">Home</span>
+      </button>
+      <button mat-menu-item [ngStyle]="{'padding-left': paddingButton}" [matMenuTriggerFor]="registrations">
+        <mat-icon aria-hidden="false" aria-label="manage_accounts icon">manage_accounts</mat-icon>
+        <span class="text-holder" [ngStyle]="{'display': display}">Cadastros</span>
+      </button>
+      <mat-menu #registrations="matMenu">
+        <button mat-menu-item>Empresa</button>
+        <mat-divider></mat-divider>
+        <button mat-menu-item>Funcionários</button>
+        <mat-divider></mat-divider>
+        <button mat-menu-item>Cobranças e Prazos</button>
+        <mat-divider></mat-divider>
+        <button mat-menu-item>Caixa/Banco</button>
+        <mat-divider></mat-divider>
+        <button mat-menu-item>Metas</button>
+      </mat-menu>
+      <button mat-menu-item [ngStyle]="{'padding-left': paddingButton}">
+        <mat-icon aria-hidden="false" aria-label="security icon">security</mat-icon>
+        <span class="text-holder" [ngStyle]="{'display': display}">Permissões de Acesso</span>
+      </button>
+      <button mat-menu-item [ngStyle]="{'padding-left': paddingButton}">
+        <mat-icon aria-hidden="false" aria-label="people_alt icon">people_alt</mat-icon>
+        <span class="text-holder" [ngStyle]="{'display': display}">Clientes</span>
+      </button>
+      <button mat-menu-item [ngStyle]="{'padding-left': paddingButton}">
+        <mat-icon aria-hidden="false" aria-label="people_outline icon">people_outline</mat-icon>
+        <span class="text-holder" [ngStyle]="{'display': display}">Fornecedores</span>
+      </button>
+      <button mat-menu-item [ngStyle]="{'padding-left': paddingButton}">
+        <mat-icon aria-hidden="false" aria-label="shopping_basket icon">shopping_basket</mat-icon>
+        <span class="text-holder" [ngStyle]="{'display': display}">Produtos</span>
+      </button>
+      <button mat-menu-item [ngStyle]="{'padding-left': paddingButton}">
+        <mat-icon aria-hidden="false" aria-label="add_shopping_cart icon">add_shopping_cart</mat-icon>
+        <span class="text-holder" [ngStyle]="{'display': display}">Vendas</span>
+      </button>
+      <button mat-menu-item [ngStyle]="{'padding-left': paddingButton}">
+        <mat-icon aria-hidden="false" aria-label="production_quantity_limits icon">production_quantity_limits</mat-icon>
+        <span class="text-holder" [ngStyle]="{'display': display}">Compras</span>
+      </button>
+      <button mat-menu-item [matMenuTriggerFor]="financial" [ngStyle]="{'padding-left': paddingButton}">
+        <mat-icon aria-hidden="false" aria-label="attach_money icon">attach_money</mat-icon>
+        <span class="text-holder" [ngStyle]="{'display': display}">Financeiro</span>
+      </button>
+      <mat-menu #financial="matMenu">
+        <button mat-menu-item>
+          <mat-icon aria-hidden="false" aria-label="attach_money icon">attach_money</mat-icon>
+          Receitas
+        </button>
+        <mat-divider></mat-divider>
+        <button mat-menu-item>
+          <mat-icon aria-hidden="false" aria-label="money_off icon">money_off</mat-icon>
+          Despesas
+        </button>
+      </mat-menu>
+      <button mat-menu-item [ngStyle]="{'padding-left': paddingButton}">
+        <mat-icon aria-hidden="false" aria-label="backup icon">backup</mat-icon>
+        <span class="text-holder" [ngStyle]="{'display': display}">Backup</span>
+      </button>
+    </mat-card-content>
+  </mat-card>
+</ng-scrollbar>

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LogInComponent } from './components/backoffice/log-in/log-in.component';
-import { HomeComponent } from './components/backoffice/home/home.component';
+import { LogInComponent } from '../view/backoffice/log-in/log-in.component';
+import { HomeComponent } from '../view/backoffice/home/home.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'backoffice/login' },

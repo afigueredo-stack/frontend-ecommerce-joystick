@@ -9,7 +9,7 @@
     <form class="form" [formGroup]="loginForm" (ngSubmit)="logIn()">
       <mat-card-content>
         <mat-form-field class="example-full-width">
-          <input matInput formControlName="email" #emailInput placeholder="Email" autofocus>
+          <input matInput type="email" formControlName="email" #emailInput placeholder="Email" autofocus>
         </mat-form-field>
 
         <mat-form-field class="example-full-width">

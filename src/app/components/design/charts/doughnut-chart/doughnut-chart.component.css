@@ -1,0 +1,7 @@
+.chart-container {
+  position: relative;
+  margin: auto;
+  height: 28vh;
+  width: 23vw;
+  min-width: 250px;
+}

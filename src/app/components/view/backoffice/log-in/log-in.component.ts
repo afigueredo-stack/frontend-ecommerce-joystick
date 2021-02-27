@@ -3,7 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 
 import { Router } from '@angular/router';
-import { BackofficesService } from '../backoffice.service';
+import { BackofficeService } from '../../../services/backoffice.service';
 
 @Component({
   selector: 'app-log-in',
@@ -22,7 +22,7 @@ export class LogInComponent {
   })
 
   constructor(
-    private backofficesService: BackofficesService,
+    private backofficeService: BackofficeService,
     private router: Router,
     private toastr: ToastrService) { }
 
@@ -37,7 +37,7 @@ export class LogInComponent {
   logIn(): void {
 
     this.loading = true;
-    this.backofficesService.logIn(this.loginForm.value).subscribe(loginReturn => {
+    this.backofficeService.logIn(this.loginForm.value).subscribe(loginReturn => {
       this.loading = false;
 
       this.emailInput.nativeElement.value = '';

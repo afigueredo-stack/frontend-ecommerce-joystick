@@ -1,0 +1,42 @@
+<!-- Botao para minimizar ou restaurar o painel da esquerda  -->
+
+<mat-toolbar class="example-toolbar">
+  <button mat-menu-item disabled>
+    <mat-icon aria-hidden="false" aria-label="Example home icon"></mat-icon>
+  </button>
+  <!-- Botoes da direita do header -->
+  <div class="icons-right">
+    <button mat-button (click)="onToggleFullscreen()">
+      <mat-icon aria-hidden="false" aria-label="fullscreen icon">fullscreen</mat-icon>
+    </button>
+    <button mat-button [matMenuTriggerFor]="info">
+      <mat-icon matBadge="1" matBadgeColor="warn">notifications_none</mat-icon>
+    </button>
+    <mat-menu #info="matMenu" yPosition="below">
+      <button mat-menu-item>Note 1</button>
+      <mat-divider></mat-divider>
+      <button mat-menu-item>Note 2</button>
+    </mat-menu>
+    <button mat-button [matMenuTriggerFor]="profile">
+      <mat-icon>
+        <div class="profile-image-right"></div>
+      </mat-icon>
+    </button>
+    <mat-menu #profile="matMenu" yPosition="below">
+      <button mat-menu-item>
+        <mat-icon aria-hidden="false" aria-label="person_pin_circle icon">person_pin_circle</mat-icon>
+        Perfil
+      </button>
+      <mat-divider></mat-divider>
+      <button mat-menu-item>
+        <mat-icon aria-hidden="false" aria-label="settings icon">settings</mat-icon>
+        Configurações
+      </button>
+      <mat-divider></mat-divider>
+      <button mat-menu-item>
+        <mat-icon aria-hidden="false" aria-label="logout icon">power_settings_new</mat-icon>
+        Sair
+      </button>
+    </mat-menu>
+  </div>
+</mat-toolbar>

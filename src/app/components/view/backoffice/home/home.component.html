@@ -1,0 +1,19 @@
+<ng-container [class.example-is-mobile]="mobileQuery.matches">
+  <mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav opened class="sidenav"
+      [ngStyle]="{'width': widthSidenav, 'min-width': minwidthSidenav, 'text-aling': text}"
+      [mode]="mobileQuery.matches ? 'side' : 'side'" [fixedInViewport]="mobileQuery.matches">
+      <button class="btn-minimized-painel" mat-menu-item (click)="minizedPainelLeft()" style="height: 22px;">
+        <mat-icon aria-hidden="false" aria-label="Example home icon">first_page</mat-icon>
+      </button>
+      <app-painel-left [display]="display" [marginBottomTitle]="marginBottomTitle" [paddingButton]="paddingButton"
+        [text]="text">
+      </app-painel-left>
+    </mat-sidenav>
+    <mat-sidenav-content [ngStyle]="{'margin-left': marginContentRight}">
+      <app-header></app-header>
+      <app-dashboard></app-dashboard>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  <app-footer></app-footer>
+</ng-container>

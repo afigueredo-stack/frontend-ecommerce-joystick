@@ -1,0 +1,94 @@
+<div class="dashboard">
+
+  <mat-grid-list class="cards" [cols]="breakpoint" rowHeight="60" gutterSize="40px" (window:resize)="onResize($event)">
+    <mat-grid-tile class="mat-grid" *ngFor="let cards of card" [colspan]="cards.colsNum" [rowspan]="cards.rows"
+      [style.background]="cards.backgroundColor">
+      <figure class="mat-figure" style="display: grid;">
+        <h4>{{cards.text}}</h4>
+        <p>
+          <mat-icon aria-hidden="false">{{cards.icon}}</mat-icon>
+          <span class="amount">{{cards.amount}}</span>
+        </p>
+        <p>{{cards.lastMonth}} com relação ao mês anterior</p>
+      </figure>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <mat-grid-list class="grid-charts" [cols]="breakpointCharts" rowHeight="370px" gutterSize="40px"
+    (window:resize)="onResize($event)">
+    <mat-grid-tile>
+      <mat-grid-tile-header>
+        <h2><strong>{{chatsLineText}}</strong></h2>
+      </mat-grid-tile-header>
+      <app-line-chart></app-line-chart>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-grid-tile-header>
+        <h2><strong>{{chatsDoughnutText}}</strong></h2>
+      </mat-grid-tile-header>
+      <app-doughnut-chart></app-doughnut-chart>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <mat-grid-list class="mat-grid-tables" [cols]="breakpointTables" rowHeight="600px" gutterSize="40px"
+    (window:resize)="onResize($event)">
+    <mat-grid-tile [colspan]="colspanTable1">
+      <figure class="mat-figure">
+        <h2>
+          <strong>{{table1Text}}</strong>
+          <mat-icon aria-hidden="false">{{table1Icon}}</mat-icon>
+        </h2>
+        <mat-table [dataSource]=" dataSourceProducts" class="mat-elevation-z8">
+
+          <ng-container matColumnDef="description">
+            <mat-header-cell *matHeaderCellDef> <span>Produto</span> </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.description}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="qtdySale">
+            <mat-header-cell *matHeaderCellDef> <span>Qtd. Vendida</span> </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.qtdySale}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="totalProfit">
+            <mat-header-cell *matHeaderCellDef> <span>Total Ganho</span> </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.totalProfit}} </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumnsProducts"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumnsProducts;"></mat-row>
+        </mat-table>
+      </figure>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="colspanTable2">
+      <figure class="mat-figure">
+        <h2>
+          <strong>{{table2Text}}</strong>
+          <mat-icon aria-hidden="false">{{table2Icon}}</mat-icon>
+        </h2>
+        <mat-table [dataSource]="dataSourceOrders" class="mat-elevation-z8">
+          <ng-container matColumnDef="numped">
+            <mat-header-cell *matHeaderCellDef> <span>#</span> </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.numped}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="client">
+            <mat-header-cell *matHeaderCellDef> <span>Cliente</span> </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.client}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="date">
+            <mat-header-cell *matHeaderCellDef> <span>Data</span> </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.date}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="status">
+            <mat-header-cell *matHeaderCellDef> <span>Status</span> </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.status}} </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumnsOrders"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumnsOrders;"></mat-row>
+        </mat-table>
+      </figure>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

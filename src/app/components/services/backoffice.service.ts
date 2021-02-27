@@ -14,7 +14,7 @@ const urlBase = 'https://joystickapi.herokuapp.com';
 @Injectable({
   providedIn: 'root'
 })
-export class BackofficesService {
+export class BackofficeService {
 
   constructor(private http: HttpClient) { }
 

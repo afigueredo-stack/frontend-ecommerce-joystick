@@ -109,3 +109,13 @@ body {
 .login-wrapper .mat-form-field-appearance-legacy .mat-form-field-infix {
   padding: 0.8375em 0;
 }
+
+.login-wrapper mat-card {
+  min-width: 450px;
+}
+
+@media only screen and (max-width: 600px) {
+  .login-wrapper mat-card {
+    min-width: 300px;
+  }
+}

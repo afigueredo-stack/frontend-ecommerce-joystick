@@ -1,39 +1,64 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxLoadingModule } from 'ngx-loading';
+import { HttpClientModule } from '@angular/common/http';
 
 import { ToastrModule } from 'ngx-toastr';
 
 /* Routing */
-import { AppRoutingModule } from './app-routing.module';
-
-import { AppComponent } from './app.component';
+import { AppRoutingModule } from './components/router/app-routing.module';
 
 /* Angular Material */
-import { AngularMaterialModule } from './angular-material.module';
+import { AngularMaterialModule } from './components/design/angular-material.module';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+
+/* Style Scroll */
+import { NgScrollbarModule } from 'ngx-scrollbar';
+
+/* ChartJS */
+import { ChartsModule } from 'ng2-charts';
 
 /* FormsModule */
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 /* Angular Flex Layout */
 import { FlexLayoutModule } from "@angular/flex-layout";
+import { MatGridListResponsiveModule } from './components/design/mat-grid-list-responsive/mat-grid-list-responsive.module';
 
 /* Components */
-import { LogInComponent } from './components/backoffice/log-in/log-in.component';
-import { RegisterComponent } from './components/backoffice/register/register.component';
-import { HttpClientModule } from '@angular/common/http';
-import { HomeComponent } from './components/backoffice/home/home.component';
+import { AppComponent } from './components/view/index/app.component';
+import { LogInComponent } from './components/view/backoffice/log-in/log-in.component';
+import { RegisterComponent } from './components/view/backoffice/register/register.component';
+import { HomeComponent } from './components/view/backoffice/home/home.component';
+import { HeaderComponent } from './components/view/backoffice/models/header/header.component';
+import { DashboardComponent } from './components/view/backoffice/models/dashboard/dashboard.component';
+import { FooterComponent } from './components/view/backoffice/models/footer/footer.component';
+import { PainelLeftComponent } from './components/view/backoffice/models/painel-left/painel-left.component';
 
+/* ChartJS Components */
+import { BarChartComponent } from "./components/design/charts/bar-chart/BarChartComponent";
+import { BubbleChartComponent } from './components/design/charts/bubble-chart/bubble-chart.component';
+import { LineChartComponent } from './components/design/charts/line-chart/line-chart.component';
+import { PieChartComponent } from './components/design/charts/pie-chart/pie-chart.component';
+import { RadarChartComponent } from './components/design/charts/radar-chart/radar-chart.component';
+import { DoughnutChartComponent } from './components/design/charts/doughnut-chart/doughnut-chart.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LogInComponent,
+    HomeComponent,
     RegisterComponent,
-    RegisterComponent,
-    LogInComponent,
-    HomeComponent
+    HeaderComponent,
+    DashboardComponent,
+    FooterComponent,
+    PainelLeftComponent,
+    BarChartComponent,
+    BubbleChartComponent,
+    LineChartComponent,
+    PieChartComponent,
+    RadarChartComponent,
+    DoughnutChartComponent
   ],
   imports: [
     BrowserModule,
@@ -44,9 +69,12 @@ import { HomeComponent } from './components/backoffice/home/home.component';
     BrowserAnimationsModule,
     HttpClientModule,
     AngularMaterialModule,
+    ChartsModule,
     ReactiveFormsModule,
     FormsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatGridListResponsiveModule,
+    NgScrollbarModule
   ],
   providers: [],
   bootstrap: [AppComponent],

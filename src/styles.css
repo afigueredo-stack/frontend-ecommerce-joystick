@@ -1,4 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body { height: 100%; margin: 0; }
+body { 
+  margin: 0; 
+  font-family: "Poppins", sans-serif;
+  background-color: #f1f2f7;
+  transition: all .5s;
+  font-size: 13px;
+  overflow: auto;
+}
+
+* {
+  font-family: "Poppins", sans-serif;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
