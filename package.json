@@ -34,7 +34,7 @@
     "ng2-charts": "^2.4.2",
     "ng2-toasty": "^4.0.3",
     "ngx-loading": "^8.0.0",
-    "ngx-scrollbar": "^7.5.2",
+    "ngx-scrollbar": "^4.0.0",
     "ngx-toastr": "^13.2.0",
     "rxjs": "~6.5.5",
     "screenfull": "^5.1.0",
