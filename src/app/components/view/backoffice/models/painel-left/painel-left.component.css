@@ -29,6 +29,10 @@
 }
 
 /* Card Left */
+.mat-drawer-inner-container {
+  overflow: hidden !important;
+}
+
 .card-left mat-card-content {
   max-width: 250px;
 }

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgxLoadingModule } from 'ngx-loading';
+/* import { NgxLoadingModule } from 'ngx-loading'; */
 import { HttpClientModule } from '@angular/common/http';
 
 import { ToastrModule } from 'ngx-toastr';
@@ -31,7 +31,7 @@ import { LogInComponent } from './components/view/backoffice/log-in/log-in.compo
 import { RegisterComponent } from './components/view/backoffice/register/register.component';
 import { HomeComponent } from './components/view/backoffice/home/home.component';
 import { HeaderComponent } from './components/view/backoffice/models/header/header.component';
-import { DashboardComponent } from './components/view/backoffice/models/dashboard/dashboard.component';
+import { DashboardComponent } from './components/view/backoffice/home/dashboard/dashboard.component';
 import { FooterComponent } from './components/view/backoffice/models/footer/footer.component';
 import { PainelLeftComponent } from './components/view/backoffice/models/painel-left/painel-left.component';
 
@@ -42,6 +42,15 @@ import { LineChartComponent } from './components/design/charts/line-chart/line-c
 import { PieChartComponent } from './components/design/charts/pie-chart/pie-chart.component';
 import { RadarChartComponent } from './components/design/charts/radar-chart/radar-chart.component';
 import { DoughnutChartComponent } from './components/design/charts/doughnut-chart/doughnut-chart.component';
+
+/* Scrollbar Components */
+import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
+import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
+import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+
+const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
+  suppressScrollX: true
+};
 
 @NgModule({
   declarations: [
@@ -64,7 +73,7 @@ import { DoughnutChartComponent } from './components/design/charts/doughnut-char
     BrowserModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
-    NgxLoadingModule.forRoot({}),
+    /* NgxLoadingModule.forRoot({}), */
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
@@ -74,9 +83,14 @@ import { DoughnutChartComponent } from './components/design/charts/doughnut-char
     FormsModule,
     FlexLayoutModule,
     MatGridListResponsiveModule,
-    NgScrollbarModule
+    PerfectScrollbarModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: PERFECT_SCROLLBAR_CONFIG,
+      useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
+    }
+  ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

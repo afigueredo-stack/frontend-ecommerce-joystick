@@ -1,5 +1,5 @@
 <!-- Painel da esquerda Completo -->
-<ng-scrollbar>
+<perfect-scrollbar>
   <mat-card class="card-left">
     <!-- Logomarca -->
     <div class="logo-card-left" [ngStyle]="{'text-align': text}">
@@ -59,7 +59,7 @@
         <span class="text-holder" [ngStyle]="{'display': display}">Compras</span>
       </button>
       <button mat-menu-item [matMenuTriggerFor]="financial" [ngStyle]="{'padding-left': paddingButton}">
-        <mat-icon aria-hidden="false" aria-label="attach_money icon">attach_money</mat-icon>
+        <mat-icon aria-hidden="false" aria-label="price_check icon">price_check</mat-icon>
         <span class="text-holder" [ngStyle]="{'display': display}">Financeiro</span>
       </button>
       <mat-menu #financial="matMenu">
@@ -79,4 +79,4 @@
       </button>
     </mat-card-content>
   </mat-card>
-</ng-scrollbar>
+</perfect-scrollbar>

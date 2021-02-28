@@ -7,7 +7,6 @@ body {
   background-color: #f1f2f7;
   transition: all .5s;
   font-size: 13px;
-  overflow: auto;
 }
 
 * {
@@ -15,4 +14,8 @@ body {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+}
+
+.mat-drawer-inner-container{
+  overflow: hidden !important;
 }

@@ -1,17 +1,12 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-painel-left',
   templateUrl: './painel-left.component.html',
   styleUrls: ['./painel-left.component.css']
 })
-export class PainelLeftComponent implements OnInit {
-
-  constructor() {
-  }
-
-  ngOnInit(): void {
-  }
+export class PainelLeftComponent {
+  constructor() { }
 
   /* Minimized/Restore Painel Left */
   @Input() display;
