@@ -86,6 +86,7 @@ export class DashboardComponent implements OnInit {
     this.colspanTable1 = this.breakpointTables === 12 ? 5 : 1;
     this.colspanTable2 = this.breakpointTables === 12 ? 7 : 1;
   }
+
   /* Graficos */
   card: Card[] = [
     { text: 'Recebidos', icon: "add_shopping_cart", amount: 358, lastMonth: '20%', rows: 2, colsNum: 1, backgroundColor: "linear-gradient(135deg,#23bdb8,#43e794)" },

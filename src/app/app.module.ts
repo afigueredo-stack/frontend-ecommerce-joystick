@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-/* import { NgxLoadingModule } from 'ngx-loading'; */
 import { HttpClientModule } from '@angular/common/http';
 
 import { ToastrModule } from 'ngx-toastr';
@@ -9,11 +8,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { AppRoutingModule } from './components/router/app-routing.module';
 
 /* Angular Material */
-import { AngularMaterialModule } from './components/design/angular-material.module';
+import { AngularMaterialModule } from './components/design/material-design/angular-material.module';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-
-/* Style Scroll */
-import { NgScrollbarModule } from 'ngx-scrollbar';
 
 /* ChartJS */
 import { ChartsModule } from 'ng2-charts';
@@ -48,6 +44,10 @@ import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 
+/* Loading Components  */
+import { LoadingComponent } from './components/design/loading/loading.component';
+import { OverlayService } from './components/services/overlay.service';
+
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
 };
@@ -67,7 +67,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     LineChartComponent,
     PieChartComponent,
     RadarChartComponent,
-    DoughnutChartComponent
+    DoughnutChartComponent,
+    LoadingComponent
+
   ],
   imports: [
     BrowserModule,
@@ -89,8 +91,10 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     {
       provide: PERFECT_SCROLLBAR_CONFIG,
       useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
-    }
+    },
+    [OverlayService]
   ],
+  entryComponents: [LoadingComponent],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
