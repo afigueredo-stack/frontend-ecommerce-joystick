@@ -6,12 +6,14 @@
 
   .logo-card-left {
     text-align: left !important;
+    padding-left: 26px;
   }
 
   .sidenav {
     width: 72px !important;
     min-width: 72px !important;
     text-align: left !important;
+    top: 56px !important
   }
 
   mat-card-content {
@@ -26,13 +28,9 @@
 
 /* Divisao da pagina */
 .example-container {
-  /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
-     causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
-  /* flex: 1; */
-  position: absolute;
   left: 0;
   right: 0;
-  height: 95%;
+  height: 87%;
   width: 100%;
 }
 
@@ -43,7 +41,7 @@
   min-width: 260px;
 }
 
-/* Card Left Feat. Home */
+/* Card Left */
 mat-sidenav { 
   top: 0px !important;
 }
@@ -52,9 +50,7 @@ mat-sidenav-container{
   margin-top: 0 !important;
 } 
 
-.example-is-mobile .example-container {
-  /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
-     `<body>` to be our scrolling element for mobile layouts. */
+.example-is-mobile .container {
   flex: 1 0 auto;
 }
 
@@ -66,7 +62,3 @@ mat-sidenav-container{
   float: right;
   margin: 0 !important;
 }
-
-/* .mat-sidenav-content {
-  background-color: #f1f2f7;
-} */

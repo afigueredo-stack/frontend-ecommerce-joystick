@@ -8,6 +8,7 @@ import { FullscreenService } from 'src/app/components/services/fullscreen.servic
 })
 export class HeaderComponent implements OnInit {
   @Output() hasToggledTheme = new EventEmitter();
+  @Output() hasMinimizedPainel = new EventEmitter();
 
   constructor(
     private fullscreenService: FullscreenService
@@ -37,5 +38,16 @@ export class HeaderComponent implements OnInit {
   toggleTheme() {
     this.hasToggledTheme.emit();
   }
+
+  /* Evento enviado para o pai para minimizar o painel esquerdo */
+  minizedPainelLeft() {
+    this.hasMinimizedPainel.emit();
+  }
+
+  /* Variaveis Minimized/Restore Painel Left */
+  @Input() widthSidenav;
+  @Input() minwidthSidenav;
+  @Input() display;
+  @Input() text;
 
 }

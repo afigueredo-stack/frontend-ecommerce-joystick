@@ -40,7 +40,7 @@ p {
 
 .cards mat-grid-tile {
   height: 150px;
-  /* margin-left: -10px !important; */
+  box-shadow: 6px -12rem 2.1875rem rgb(90 97 105 / 10%), 0 0.9375rem 1.40625rem rgb(90 97 105 / 10%), 0 0.25rem 0.53125rem rgb(90 97 105 / 12%), 0 -0.18rem 3.1875rem rgb(90 97 105 / 10%);
 }
 
 .mat-grid-tile {   

@@ -25,7 +25,7 @@ import { MatGridListResponsiveModule } from './components/design/mat-grid-list-r
 import { AppComponent } from './components/view/index/app.component';
 import { LogInComponent } from './components/view/backoffice/log-in/log-in.component';
 import { RegisterComponent } from './components/view/backoffice/register/register.component';
-import { HomeComponent } from './components/view/backoffice/home/home.component';
+import { HomeComponent } from './components/view/backoffice/home/index/home.component';
 import { HeaderComponent } from './components/view/backoffice/models/header/header.component';
 import { DashboardComponent } from './components/view/backoffice/home/dashboard/dashboard.component';
 import { FooterComponent } from './components/view/backoffice/models/footer/footer.component';

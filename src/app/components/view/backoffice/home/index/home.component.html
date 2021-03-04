@@ -1,28 +1,29 @@
 <div [class.dark-theme]="hasToggledTheme" class="mat-app-background" [style.height]="'100%'">
   <ng-container class="mat-app-background" [style.height]="'100%'" [class.example-is-mobile]="mobileQuery.matches">
+    <!-- HEADER -->
+    <!-- VIEW/MODELS -->
+    <app-header [display]="display" [widthSidenav]="widthSidenav" [minwidthSidenav]="minwidthSidenav" [text]="text"
+      (hasToggledTheme)="toggleTheme()" (hasMinimizedPainel)="minizedPainelLeft()">
+    </app-header>
     <mat-sidenav-container class="example-container">
-      <!-- Lado esquerdo -->
+      <!-- LADO ESQUERDO -->
       <mat-sidenav #sidenav opened class="sidenav"
         [ngStyle]="{'width': widthSidenav, 'min-width': minwidthSidenav, 'text-aling': text}"
         [mode]="mobileQuery.matches ? 'side' : 'side'" [fixedInViewport]="mobileQuery.matches">
-        <button class="btn-minimized-painel" mat-menu-item (click)="minizedPainelLeft()" style="height: 22px;">
-          <mat-icon aria-hidden="false" aria-label="first_page icon">first_page</mat-icon>
-        </button>
-        <!-- Componente em views/models -->
+        <!-- VIEW/MODELS -->
         <app-painel-left [display]="display" [marginBottomTitle]="marginBottomTitle" [paddingButton]="paddingButton"
           [text]="text">
         </app-painel-left>
       </mat-sidenav>
-      <!-- Lado direido -->
+      <!-- CORPO -->
       <mat-sidenav-content [ngStyle]="{'margin-left': marginContentRight}">
-        <!-- Cabeçalho -->
-        <app-header (hasToggledTheme)="toggleTheme()">
-        </app-header>
         <!-- Dashboard -->
+        <!-- VIEW/MODELS -->
         <app-dashboard style="background-color: #f1f2f7"></app-dashboard>
       </mat-sidenav-content>
     </mat-sidenav-container>
-    <!-- Rodapé -->
+    <!-- RODAPE -->
+    <!-- VIEW/MODELS -->
     <app-footer></app-footer>
   </ng-container>
 </div>

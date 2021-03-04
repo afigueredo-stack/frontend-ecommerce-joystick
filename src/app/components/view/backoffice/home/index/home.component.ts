@@ -49,8 +49,8 @@ export class HomeComponent implements OnDestroy {
     if (!this.isMinized) {
       this.display = 'none';
       this.text = 'left';
-      this.widthSidenav = '75px';
-      this.minwidthSidenav = '75px';
+      this.widthSidenav = '72px';
+      this.minwidthSidenav = '72px';
       this.paddingButton = '26px';
       this.marginContentRight = '75px';
       this.isMinized = true;
@@ -58,10 +58,10 @@ export class HomeComponent implements OnDestroy {
       this.display = 'inline-flex';
       this.marginBottomTitle = '0px';
       this.text = 'center';
-      this.widthSidenav = '270px';
-      this.minwidthSidenav = '270px';
+      this.widthSidenav = '260px';
+      this.minwidthSidenav = '260px';
       this.paddingButton = '50px 50px';
-      this.marginContentRight = '270px';
+      this.marginContentRight = '260px';
       this.isMinized = false;
     }
   }

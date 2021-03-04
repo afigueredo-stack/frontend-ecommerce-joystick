@@ -6,10 +6,12 @@
 
   .logo-card-left {
     text-align: left !important;
+    
   }
 
   mat-card-content {
     text-align: left !important;
+    padding-top: 10px !important;
   }
 
   .mat-card {
@@ -37,6 +39,9 @@
 }
 
 /* Card Left */
+mat-card-content {
+  padding-top: 10px
+}
 .mat-drawer-inner-container {
   overflow: hidden !important;
 }
@@ -44,18 +49,6 @@
 .mat-card {
   margin-left: -16px;
   margin-right: -16px;
-}
-
-/* .card-left mat-card-content {
-  max-width: 250px;
-} */
-
-.logo-card-left {  
-  text-align: center;
-}
-
-.logo-card-left img{  
-  width: 60px;
 }
 
 .profile-image {

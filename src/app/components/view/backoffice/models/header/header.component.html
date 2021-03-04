@@ -1,9 +1,17 @@
-<!-- Botao para minimizar ou restaurar o painel da esquerda  -->
+<mat-toolbar class="toolbar">
 
-<mat-toolbar class="example-toolbar">
-  <button mat-menu-item disabled>
-    <mat-icon aria-hidden="false" aria-label="Example home icon"></mat-icon>
-  </button>
+  <!-- Logomarca -->
+  <div class="logo-card-left" [ngStyle]="{'width': widthSidenav, 'min-width': minwidthSidenav, 'text-aling': text}">
+    <mat-card>
+      <img mat-card-image src="\assets\img\logo.png" alt="Logomarca da empresa" />
+      <span class="logo-name" [ngStyle]="{'display': display}">Joystick Loja</span>
+    </mat-card>
+  </div>
+  <div class="btn-minimized-painel">
+    <button mat-menu-item (click)="minizedPainelLeft()">
+      <mat-icon aria-hidden="false" aria-label="keyboard_arrow_left icon">keyboard_arrow_left</mat-icon>
+    </button>
+  </div>
   <!-- Botoes da direita do header -->
   <div class="icons-right">
     <button mat-button (click)="onToggleFullscreen()">
