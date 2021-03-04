@@ -1,16 +1,17 @@
 /* Dashboard */
 @media only screen and(max-width: 992px) {
-  .mat-grid{
+  .grid-cards{
       flex: 0 0 25% !important;
       max-width: 25% !important;
   }
 }
+
 @media only screen and(max-width: 632px) {
-  .mat-grid {
+  .grid-cards{
       flex: 0 50% !important;
       max-width: 50% !important;
   }
-  .mat-grid-tables .mat-grid-tile {
+  .grid-tables .mat-grid-tile {
     height: 320px !important;
   }
 
@@ -22,23 +23,19 @@
   z-index: 2;
 }
 
-.dashboard {
-  background-color: #F1F2F7;
-  padding: 20px 20px 20px 30px;
-  display: block;
-} 
-
-.dashboard .mat-icon {
+.mat-icon {
   font-size: xx-large;
   line-height: 0.6;
 }
 
-.dashboard p {
+p {
   margin: 0 !important;
 }
 
+/* Cards */
 .cards {
   height: 25%;
+  margin: 20px 20px 0px 20px;  
 }
 
 .cards mat-grid-tile {
@@ -49,9 +46,21 @@
 .mat-grid-tile {   
   display: inline-flex;
   border-radius: 5px;
-  color: #fff;
   box-shadow: 0 1px 2.94px 0.06px rgb(4 26 55 / 16%);
   padding: 0px !important;  
+}
+
+.grid-cards {
+  color: #fff;
+}
+
+
+.grid-cards h4 {
+  font-weight: 700;
+  font-size: 1.5rem;
+  text-align: left;
+  color: #fff;
+  font-family: "Poppins", sans-serif !important;
 }
 
 figure {  
@@ -76,68 +85,87 @@ figure h4 {
 /* Graficos */
 .grid-charts {  
   margin-top: 20px;
-  
+  margin: 20px 20px 0px 20px;
 }
 
-.grid-charts mat-grid-tile{
+.grid-charts .mat-grid-tile{
   height: 760px;
-  background-color: #fff;
-}
-
-.grid-charts mat-grid-tile-header {
-  background-color: #fff;
-}
+  box-shadow:  
+    0 0.46875rem 2.1875rem rgb(90 97 105 / 10%),   
+    0 0.9375rem 1.40625rem rgb(90 97 105 / 10%), 
+    0 0.25rem 0.53125rem rgb(90 97 105 / 12%), 
+    0 -0.18rem 3.1875rem rgb(90 97 105 / 10%);
+  }
 
 .grid-charts h2{
   margin: 0;
   font-size: 16px;
   font-weight: 400;
-  color: #5b626b;
+  padding: 20px;
+  float: left;
 } 
+
+.grid-charts .mat-icon {
+  color: #00bcd4;
+  font-size: 50px;
+  float: right;
+  margin-right: 40px;
+}
+
+.grid-charts .mat-elevation-z8 {
+  box-shadow: none;
+}
+
+.grid-charts .mat-figure{
+  display: block !important;
+  padding: 0 !important;
+}
 
 /* Tabelas */
 table {
   width: 100%;
 }
 
-.mat-grid-tables {
-  margin-top: 20px;
+.grid-tables {
+  margin: 20px 20px 0px 20px;
   border-radius: 6px;  
   height: 600px;
 }
 
-.mat-grid-tables .mat-grid-tile {
-  background-color:#fff;
+.grid-tables .mat-grid-tile {
   overflow: auto;
   overflow-x: auto;
   margin-bottom: 10px !important; 
   height: 600px;
+  box-shadow:  
+  0 0.46875rem 2.1875rem rgb(90 97 105 / 10%),   
+  0 0.9375rem 1.40625rem rgb(90 97 105 / 10%), 
+  0 0.25rem 0.53125rem rgb(90 97 105 / 12%), 
+  0 -0.18rem 3.1875rem rgb(90 97 105 / 10%);
 }
 
-.mat-grid-tables .mat-figure{
+.grid-tables .mat-figure{
   display: block !important;
   padding: 0 !important;
 }
 
-.mat-grid-tables .mat-elevation-z8 {
+.grid-tables .mat-elevation-z8 {
   box-shadow: none;
 }
 
-.mat-grid-tables h2{
+.grid-tables h2{
   margin: 0;
   font-size: 16px;
   font-weight: 400;
-  color: #5b626b;
   padding: 20px;
 } 
 
-.mat-grid-tables mat-header-cell span {
+.grid-tables mat-header-cell span {
   font-weight: bold;
   font-size: 14px;
-  color: #000;
 }
 
-.mat-grid-tables .mat-icon {
+.grid-tables .mat-icon {
   color: #00bcd4;
   font-size: 50px;
   float: right;

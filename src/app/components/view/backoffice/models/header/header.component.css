@@ -88,6 +88,7 @@ mat-card-header mat-card-subtitle {
 /* Card Right */
 mat-toolbar {
   background-color: #fff;
+  box-shadow: 0 1px 5px rgb(0 0 0 / 25%);
 }
 
 .top-page button{

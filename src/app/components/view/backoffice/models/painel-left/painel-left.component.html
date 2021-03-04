@@ -2,23 +2,23 @@
 <perfect-scrollbar>
   <mat-card class="card-left">
     <!-- Logomarca -->
-    <div class="logo-card-left" [ngStyle]="{'text-align': text}">
+    <div class="logo-card-left" [ngStyle]="{'text-align': text, 'padding-left': paddingButton}">
       <img mat-card-image src="\assets\img\logo-joystick-loja.png" alt="Logomarca da empresa">
     </div>
     <!-- Profile -->
-    <mat-card-header>
-      <div mat-card-avatar class="profile-image"></div>
-      <mat-card-title [ngStyle]="{'display': display, 'margin-bottom': marginBottomTitle}" style="margin-left: 6px;">
-        Axel
-        Figueredo
+    <mat-card-header class="profile">
+      <div mat-card-avatar class="profile-image" [ngStyle]="{'text-align': text}"></div>
+      <mat-card-title class="title" [ngStyle]="{'display': display, 'margin-bottom': marginBottomTitle}"
+        style="margin-left: 6px;">
+        Axel Figueredo
       </mat-card-title>
-      <mat-card-subtitle [ngStyle]="{'display': display}" style="margin-left: 6px;">
-        Bem-vindo Admin!
+      <mat-card-subtitle class="subtitle" [ngStyle]="{'display': display}" style="margin-left: 6px;">
+        Bem-vindo Admin !
       </mat-card-subtitle>
     </mat-card-header>
     <!-- Painel da esquerda - Acoes -->
     <mat-card-content [ngStyle]="{'text-align': text}">
-      <button mat-menu-item [ngStyle]="{'padding-left': paddingButton}">
+      <button class="active" mat-menu-item [ngStyle]="{'padding-left': paddingButton}">
         <mat-icon aria-hidden="false" aria-label="home icon">home</mat-icon>
         <span class="text-holder" [ngStyle]="{'display': display}">Home</span>
       </button>

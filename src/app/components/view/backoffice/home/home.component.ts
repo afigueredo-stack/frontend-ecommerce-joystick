@@ -7,6 +7,9 @@ import { ChangeDetectorRef, Component, OnDestroy } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnDestroy {
+  /* Responsável por exibir Dark Theme ou Light Theme */
+  hasToggledTheme: boolean;
+
   constructor(
     changeDetectorRef: ChangeDetectorRef,
     media: MediaMatcher
@@ -22,6 +25,11 @@ export class HomeComponent implements OnDestroy {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
 
+  /* Alterado tema da aplicação  */
+  toggleTheme() {
+    this.hasToggledTheme = !this.hasToggledTheme;
+  }
+
   /* Configuracion for mobile */
   mobileQuery: MediaQueryList;
   private _mobileQueryListener: () => void;
@@ -29,23 +37,22 @@ export class HomeComponent implements OnDestroy {
   /* Minimized/Restore Painel Left */
   display = 'listview';
   marginBottomTitle = 'listview';
-  text = 'listview';//ok
-  widthSidenav = 'listview';//ok
-  minwidthSidenav = 'listview';//ok
+  text = 'listview';
+  widthSidenav = 'listview';
+  minwidthSidenav = 'listview';
   paddingButton = 'listview';
-  marginContentRight = 'listview';//ok
+  marginContentRight = 'listview';
 
   isMinized: boolean = false;
 
   minizedPainelLeft() {
     if (!this.isMinized) {
       this.display = 'none';
-      /* this.marginBottomTitle = '0'; */
       this.text = 'left';
-      this.widthSidenav = '72px';
-      this.minwidthSidenav = '72px';
-      this.paddingButton = '10px';
-      this.marginContentRight = '72px';
+      this.widthSidenav = '75px';
+      this.minwidthSidenav = '75px';
+      this.paddingButton = '26px';
+      this.marginContentRight = '75px';
       this.isMinized = true;
     } else if (window.innerWidth > 600) {
       this.display = 'inline-flex';

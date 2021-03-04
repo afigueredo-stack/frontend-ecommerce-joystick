@@ -1,0 +1,43 @@
+@import '~@angular/material/theming';
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+@include mat-core();
+$app-dark-primary: mat-palette($mat-purple);
+$app-dark-accent: mat-palette($mat-green, A200, A100, A400);
+$app-dark-theme: mat-dark-theme($app-dark-primary, $app-dark-accent);
+.dark-theme {
+  @include angular-material-theme($app-dark-theme);
+}
+// Normal theme
+$app-light-primary: mat-palette($mat-indigo);
+$app-light-accent: mat-palette($mat-pink, A200, A100, A400);
+$app-light-theme: mat-light-theme($app-light-primary, $app-light-accent);
+@include angular-material-theme($app-light-theme); 
+
+/* You can add global styles to this file, and also import other style files */
+html, body { 
+  height: 100%; 
+  margin: 0; 
+  background-color: #f1f2f7;
+  transition: all .5s;
+  font-family: 'Poppins',sans-serif !important;
+  font-size: 13px;
+}
+
+
+* {
+  font-family: "Poppins", sans-serif ;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+} 
+
+/* Removendo scroll padrao */
+.mat-drawer-inner-container{
+  overflow: hidden !important;
+}
+
+/* Removendo margem inserido auto pelo material design */
+.mat-card-header-text {
+  margin: 0 !important;
+}

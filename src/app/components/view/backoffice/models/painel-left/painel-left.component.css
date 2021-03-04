@@ -12,8 +12,16 @@
     text-align: left !important;
   }
 
-  mat-card button{
-    padding-left: 10px !important;
+  .mat-card {
+    padding: 16px;
+  }
+
+  .logo-card-left {
+    padding-left: 26px;
+  }
+
+  .mat-card button{
+    padding-left: 26px;
   }
   
 }
@@ -33,31 +41,67 @@
   overflow: hidden !important;
 }
 
-.card-left mat-card-content {
-  max-width: 250px;
+.mat-card {
+  margin-left: -16px;
+  margin-right: -16px;
 }
+
+/* .card-left mat-card-content {
+  max-width: 250px;
+} */
 
 .logo-card-left {  
   text-align: center;
 }
 
 .logo-card-left img{  
-  width: 70px;
+  width: 60px;
 }
 
 .profile-image {
   background-image: url("/assets/img/profile/afigueredo.jpg");
   background-size: cover;
+  box-shadow: 4px 3px 6px 0 rgb(0 0 0 / 20%);
+}
+
+.profile .title {
+  font-size: 15px;
+  text-transform: capitalize;
+  margin-bottom: 2px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-top: 0;
+}
+
+.profile .subtitle {
+  font-size: 11px;
+  margin-top: 5px;
+  margin-bottom: 1rem;
+  font-weight: bolder;
 }
 
 .mat-card-avatar {
   border-radius: 6px;
 }
 
-mat-card-header mat-card-title {
+.mat-card-header {
+  padding: 0 16px;
+}
+
+.mat-card-header mat-card-title {
   font-size: 14px;
 }
 
-mat-card-header mat-card-subtitle {
+.mat-card-header mat-card-subtitle {
   font-size: 12px;
+}
+
+.active {
+  border-right: 2px solid #00bcd4;
+  background: rgba(146,144,144,.28);
+  font-weight: bold;
+}
+
+.mat-card button {
+  overflow: unset;
 }

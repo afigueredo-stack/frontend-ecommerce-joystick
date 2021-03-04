@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FullscreenService } from 'src/app/components/services/fullscreen.service';
 
 @Component({
@@ -7,14 +7,15 @@ import { FullscreenService } from 'src/app/components/services/fullscreen.servic
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  @Output() hasToggledTheme = new EventEmitter();
+
   constructor(
     private fullscreenService: FullscreenService
   ) {
     ;
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   /**
    * Toggles the fullscreen mode.
@@ -28,6 +29,13 @@ export class HeaderComponent implements OnInit {
 
   toggleBadgeVisibility() {
     this.hidden = !this.hidden;
+  }
+
+  /**
+ * Toggles the theme
+ */
+  toggleTheme() {
+    this.hasToggledTheme.emit();
   }
 
 }
