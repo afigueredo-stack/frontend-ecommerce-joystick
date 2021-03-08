@@ -6,10 +6,10 @@
       <div mat-card-avatar class="profile-image" [ngStyle]="{'text-align': text}"></div>
       <mat-card-title class="title" [ngStyle]="{'display': display, 'margin-bottom': marginBottomTitle}"
         style="margin-left: 6px;">
-        Axel Figueredo
+        {{firstName }} {{lastName}}
       </mat-card-title>
       <mat-card-subtitle class="subtitle" [ngStyle]="{'display': display}" style="margin-left: 6px;">
-        Bem-vindo Admin !
+        Bem-vindo {{currentUser.username}}!
       </mat-card-subtitle>
     </mat-card-header>
     <!-- Painel da esquerda - Acoes -->

@@ -4,7 +4,7 @@
   <div class="logo-card-left" [ngStyle]="{'width': widthSidenav, 'min-width': minwidthSidenav, 'text-aling': text}">
     <mat-card>
       <img mat-card-image src="\assets\img\logo.png" alt="Logomarca da empresa" />
-      <span class="logo-name" [ngStyle]="{'display': display}">Joystick Loja</span>
+      <span class="logo-name" [ngStyle]="{'display': display}">{{currentUser.company}}</span>
     </mat-card>
   </div>
   <div class="btn-minimized-painel">
@@ -44,7 +44,7 @@
         Configurações
       </button>
       <mat-divider></mat-divider>
-      <button mat-menu-item>
+      <button mat-menu-item (click)="logout()">
         <mat-icon aria-hidden="false" aria-label="logout icon">power_settings_new</mat-icon>
         Sair
       </button>

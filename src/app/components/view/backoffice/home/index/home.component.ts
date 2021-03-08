@@ -1,5 +1,8 @@
 import { MediaMatcher } from '@angular/cdk/layout';
 import { ChangeDetectorRef, Component, OnDestroy } from '@angular/core';
+import { User } from 'src/app/components/models/user';
+import { UserService } from 'src/app/components/services/user.service';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -9,17 +12,23 @@ import { ChangeDetectorRef, Component, OnDestroy } from '@angular/core';
 export class HomeComponent implements OnDestroy {
   /* Responsável por exibir Dark Theme ou Light Theme */
   hasToggledTheme: boolean;
+  users: User;
 
   constructor(
     changeDetectorRef: ChangeDetectorRef,
-    media: MediaMatcher
+    media: MediaMatcher,
+    private userService: UserService
   ) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.userService.getUser().pipe(first()).subscribe(users => {
+      this.users = users;
+    });
+  }
 
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);

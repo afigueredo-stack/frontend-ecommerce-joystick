@@ -1,15 +1,21 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { ToastrModule } from 'ngx-toastr';
 
 /* Routing */
 import { AppRoutingModule } from './components/router/app-routing.module';
 
+/* Authentication */
+// used to create fake backend
+import { fakeBackendProvider } from './components/helpers/fake-backend';
+import { JwtInterceptor } from './components/helpers/jwt.interceptor';
+import { ErrorInterceptor } from './components/helpers/error.interceptor';
+
 /* Angular Material */
 import { AngularMaterialModule } from './components/design/material-design/angular-material.module';
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA, LOCALE_ID } from '@angular/core';
 
 /* ChartJS */
 import { ChartsModule } from 'ng2-charts';
@@ -47,6 +53,7 @@ import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 /* Loading Components  */
 import { LoadingComponent } from './components/design/loading/loading.component';
 import { OverlayService } from './components/services/overlay.service';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -92,6 +99,11 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
       provide: PERFECT_SCROLLBAR_CONFIG,
       useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
     },
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+
+    // provider used to create fake backend
+    /* fakeBackendProvider, */
     [OverlayService]
   ],
   entryComponents: [LoadingComponent],

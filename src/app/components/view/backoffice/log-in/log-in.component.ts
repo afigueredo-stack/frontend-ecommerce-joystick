@@ -1,12 +1,12 @@
-import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { ToastrService } from 'ngx-toastr';
-
-import { Router } from '@angular/router';
-import { BackofficeService } from '../../../services/backoffice.service';
-import { OverlayService } from 'src/app/components/services/overlay.service';
-import { LoadingComponent } from 'src/app/components/design/loading/loading.component';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { first } from 'rxjs/operators';
+import { LoadingComponent } from 'src/app/components/design/loading/loading.component';
+import { AuthenticationService } from 'src/app/components/services/authentication.service';
+import { OverlayService } from 'src/app/components/services/overlay.service';
 
 @Component({
   selector: 'app-log-in',
@@ -14,15 +14,38 @@ import { MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./log-in.component.css']
 })
 export class LogInComponent implements OnInit {
+  loginForm: FormGroup;
+  submitted = false;
+  error = '';
+
+  /* Material Design of Password - Visible or not */
   hide = true;
-  visibleSpinner = false;
-  /* breakpoint/*  */
+
+  /* breakpoint */
   breakpointForm: number = 4;
   breakpointBanner: number = 8;
 
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private authenticationService: AuthenticationService,
+    private toastr: ToastrService,
+    private progressSpinnerService: OverlayService
+  ) {
+    // redirect to home if already logged in
+    if (this.authenticationService.currentUserValue) {
+      this.router.navigate(['/backoffice/home']);
+    }
+  }
+
   ngOnInit() {
+    this.loginForm = this.formBuilder.group({
+      username: new FormControl('', Validators.required),
+      password: new FormControl('', Validators.required)
+    });
     this.breakpointForm = (window.innerWidth <= 800) ? 12 : 4;
     this.breakpointBanner = (this.breakpointForm == 12) ? 0 : 8;
+
   }
 
   onResize(event) {
@@ -30,20 +53,34 @@ export class LogInComponent implements OnInit {
     this.breakpointBanner = (this.breakpointForm == 12) ? 0 : 8;
   }
 
-  @ViewChild('emailInput', { static: true }) emailInput: ElementRef;
-  @ViewChild('senhaInput', { static: true }) senhaInput: ElementRef;
+  @ViewChild('usernameInput', { static: true }) usernameInput: ElementRef;
+  @ViewChild('passwordInput', { static: true }) passwordInput: ElementRef;
 
-  loginForm = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email]),
-    senha: new FormControl('', Validators.required)
-  })
+  //Facilitando o acesso dos valores do Form
+  get f() { return this.loginForm.controls; }
 
-  constructor(
-    private backofficeService: BackofficeService,
-    private router: Router,
-    private toastr: ToastrService,
-    private progressSpinnerService: OverlayService
-  ) {
+  onSubmit(): void {
+    this.submitted = true;
+
+    // Para aqui se o form está inválido
+    if (this.loginForm.invalid) {
+      this.showError("Tem alguma coisa errada -_- Veja se os campos de usuário e senha estão inseridos");
+      return;
+    }
+    let spinner = this.showProgressSpinner();
+    this.authenticationService.login(this.f.username.value, this.f.password.value)
+      .pipe(first())
+      .subscribe({
+        next: () => {
+          this.closeProgressSpinner(spinner);
+          this.router.navigate(['backoffice/home']);
+        },
+        error: error => {
+          this.focusPassword();
+          this.closeProgressSpinner(spinner);
+          this.showError(error);
+        }
+      });
   }
 
   showSuccess(msg: string) {
@@ -62,33 +99,9 @@ export class LogInComponent implements OnInit {
     this.progressSpinnerService.close(spinner);
   }
 
-  logIn(): void {
-    /* Exibindo Spinner */
-    let spinner = this.showProgressSpinner();
-    this.backofficeService.logIn(this.loginForm.value).subscribe(loginReturn => {
-
-      this.emailInput.nativeElement.value = '';
-      this.senhaInput.nativeElement.value = '';
-
-      this.showSuccess("Top! Vamos lá!.");
-      this.router.navigate(['backoffice/home']);
-
-      /* Retirando Spinner */
-      this.closeProgressSpinner(spinner);
-
-    },
-      (err) => {
-        if (err.status == 400) {
-          this.senhaInput.nativeElement.value = '';
-          this.senhaInput.nativeElement.focus();
-
-          console.log(err);
-          const erroReturn = err.error.errors;
-          this.showError(erroReturn);
-
-          /* Retirando Spinner */
-          this.closeProgressSpinner(spinner);
-        }
-      });
+  focusPassword() {
+    this.passwordInput.nativeElement.value = '';
+    this.passwordInput.nativeElement.focus();
   }
+
 }

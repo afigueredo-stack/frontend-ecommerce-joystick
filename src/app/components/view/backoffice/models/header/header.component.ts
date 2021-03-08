@@ -1,19 +1,26 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FullscreenService } from 'src/app/components/services/fullscreen.service';
+import { AuthenticationService } from 'src/app/components/services/authentication.service';
+import { Router } from '@angular/router';
+import { User } from 'src/app/components/models/user';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
+
 export class HeaderComponent implements OnInit {
+  currentUser: User;
   @Output() hasToggledTheme = new EventEmitter();
   @Output() hasMinimizedPainel = new EventEmitter();
 
   constructor(
-    private fullscreenService: FullscreenService
+    private fullscreenService: FullscreenService,
+    private router: Router,
+    private authenticationService: AuthenticationService
   ) {
-    ;
+    this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
   }
 
   ngOnInit(): void { }
@@ -49,5 +56,10 @@ export class HeaderComponent implements OnInit {
   @Input() minwidthSidenav;
   @Input() display;
   @Input() text;
+
+  logout() {
+    this.authenticationService.logout();
+    this.router.navigate(['/backoffice/login']);
+  }
 
 }
