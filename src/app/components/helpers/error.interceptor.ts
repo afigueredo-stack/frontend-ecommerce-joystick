@@ -17,7 +17,9 @@ export class ErrorInterceptor implements HttpInterceptor {
         this.authenticationService.logout();
         location.reload(true);
       }
-      /* const error = err.error.message || err.statusText; */
+      if (err.status === 0) {
+        return throwError("Sem comunicação com o servidor.");
+      }
       const error = err.error.errors;
 
       return throwError(error);

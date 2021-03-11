@@ -68,7 +68,7 @@ export class LogInComponent implements OnInit {
       return;
     }
     let spinner = this.showProgressSpinner();
-    this.authenticationService.login(this.f.username.value, this.f.password.value)
+    this.authenticationService.login(this.f.username.value.trim(), this.f.password.value.trim())
       .pipe(first())
       .subscribe({
         next: () => {
